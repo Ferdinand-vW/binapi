@@ -22,20 +22,22 @@ if (DEFINED ${BOOST_INCLUDE_DIR})
     )
 endif()
 
+set(BINAPI_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR}/include)
+
 set(BINAPI_HEADERS
-    binapi/api.hpp
-    binapi/flatjson.hpp
-    binapi/dtf.hpp
-    binapi/double_type.hpp
-    binapi/enums.hpp
-    binapi/errors.hpp
-    binapi/invoker.hpp
-    binapi/message.hpp
-    binapi/pairslist.hpp
-    binapi/reports.hpp
-    binapi/tools.hpp
-    binapi/types.hpp
-    binapi/websocket.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/api.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/flatjson.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/dtf.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/double_type.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/enums.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/errors.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/invoker.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/message.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/pairslist.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/reports.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/tools.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/types.hpp
+    ${BINAPI_INCLUDE_DIRS}/binapi/websocket.hpp
 )
 
 set(BINAPI_SOURCES
@@ -62,6 +64,7 @@ set(LibName ${PROJECT_NAME}_lib)
 add_library(
     ${LibName}
     ${BINAPI_SOURCES}
+    ${BINAPI_HEADERS}
 )
 
 if (DEFINED ${BOOST_LIB_DIR})
