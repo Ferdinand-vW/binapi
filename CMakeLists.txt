@@ -57,15 +57,35 @@ add_executable(
     ${BINAPI_SOURCES}
 )
 
+set(LibName ${PROJECT_NAME}_lib)
+
+add_library(
+    ${LibName}
+    ${BINAPI_SOURCES}
+)
+
 if (DEFINED ${BOOST_LIB_DIR})
     target_link_libraries(
         ${PROJECT_NAME}
+        -L${BOOST_LIB_DIR}
+    )
+
+    target_link_libraries(
+        ${LibName}
         -L${BOOST_LIB_DIR}
     )
 endif()
 
 target_link_libraries(
     ${PROJECT_NAME}
+    z
+    crypto
+    ssl
+    pthread
+)
+
+target_link_libraries(
+    ${LibName}
     z
     crypto
     ssl
