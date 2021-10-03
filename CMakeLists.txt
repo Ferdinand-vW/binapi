@@ -96,5 +96,5 @@ target_link_libraries(
 
 target_include_directories(${LibName}
     PUBLIC
-        ${BINAPI_HEADERS}
+        ${BINAPI_INCLUDE_DIRS}
 )
